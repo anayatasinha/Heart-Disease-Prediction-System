@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Heart Disease Prediction</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+
+        h2 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        form {
+            background: #ffffff;
+            width: 380px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            margin: 6px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #e63946;
+            box-shadow: 0 0 6px rgba(230, 57, 70, 0.5);
+        }
+
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #e63946, #ff6b6b);
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(230, 57, 70, 0.4);
+        }
+
+        h3 {
+            margin-top: 20px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .info-box {
+            margin-top: 25px;
+            background: rgba(255, 255, 255, 0.95);
+            width: 380px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .info-box h4 {
+            margin-top: 0;
+            color: #e63946;
+            text-align: center;
+        }
+
+        .info-box ul {
+            padding-left: 18px;
+            font-size: 13px;
+            color: #333;
+        }
+
+        .info-box li {
+            margin-bottom: 6px;
+        }
+
+        p {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #e0e0e0;
+            text-align: center;
+            max-width: 420px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <p><i><b>This tool is for EDUCATIONAL PURPOSES ONLY. <u>Consult a doctor for medical advice.</u></b></i>
+    </p>
+
+    <h2>🫀 Heart Disease Prediction System</h2>
+
+    <form action="/predict" method="post">
+        <input name="age" placeholder="Age" required>
+        <input name="sex" placeholder="Sex (1 = Male, 0 = Female)" required>
+        <input name="cp" placeholder="Chest Pain Type (0–3)" required>
+        <input name="trestbps" placeholder="Resting Blood Pressure" required>
+        <input name="chol" placeholder="Cholesterol (mg/dl)" required>
+        <input name="fbs" placeholder="Fasting Blood Sugar (1/0)" required>
+        <input name="restecg" placeholder="Rest ECG (0–2)" required>
+        <input name="thalach" placeholder="Maximum Heart Rate" required>
+        <input name="exang" placeholder="Exercise Angina (1/0)" required>
+        <input name="oldpeak" placeholder="ST Depression (Oldpeak)" required>
+        <input name="slope" placeholder="Slope (0–2)" required>
+        <input name="ca" placeholder="Major Vessels (0–3)" required>
+        <input name="thal" placeholder="Thal (1–3)" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+    <h3>{{ probability }}</h3>
+
+    <!-- FEATURE DESCRIPTION SECTION -->
+    <div class="info-box">
+        <h4>📘 Input Features Explained</h4>
+        <ul>
+            <li><b>Age:</b> Age of the patient in years</li>
+            <li><b>Sex:</b> 1 = Male, 0 = Female</li>
+            <li><b>Chest Pain (cp):</b> Type of chest pain experienced</li>
+            <li><b>Resting BP:</b> Blood pressure at rest (mm Hg)</li>
+            <li><b>Cholesterol:</b> Serum cholesterol level (mg/dl)</li>
+            <li><b>FBS:</b> Fasting blood sugar > 120 mg/dl (1 = True, 0 = False)</li>
+            <li><b>Rest ECG:</b> Resting electrocardiographic results</li>
+            <li><b>Thalach:</b> Maximum heart rate achieved</li>
+            <li><b>Exang:</b> Exercise-induced angina (1 = Yes, 0 = No)</li>
+            <li><b>Oldpeak:</b> ST depression induced by exercise</li>
+            <li><b>Slope:</b> Slope of the peak exercise ST segment</li>
+            <li><b>CA:</b> Number of major vessels colored by fluoroscopy</li>
+            <li><b>Thal:</b> Thalassemia condition</li>
+        </ul>
+    </div>
+
+
+
+</body>
+
+</html>
